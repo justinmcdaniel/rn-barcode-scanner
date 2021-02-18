@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "preandroid": "echo \"Enter IP addr for Android device:\" && read ip && adb connect $ip:5555",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "prestart": "sudo firewall-cmd --zone=public --add-port=8081/tcp && adb reverse tcp:8081 tcp:8081",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-camera": "^3.42.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
